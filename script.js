@@ -50,7 +50,7 @@ function displayReturnTime(futureTime) {
 	let hours = newDate.getHours() % 12 == 0 ? 12 : newDate.getHours() % 12;
 	let minute = newDate.getMinutes();
 	let seconds = newDate.getSeconds();
-	let display = `Be Back At ${hours}:${minute < 10 ? "0" : ""}${minute}:${seconds < 10 ? "0" : ""}${seconds}`;
+	let display = `Be Back At ${hours}:${minute < 10 ? "0" : ""}${minute}`//:${seconds < 10 ? "0" : ""}${seconds}`;
 	display__end_time.textContent = display;
 }
 
