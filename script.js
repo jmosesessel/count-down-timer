@@ -1,14 +1,19 @@
+
+// get the 
+let display__time_left = document.querySelector(".display__time-left");
+let display__end_time = document.querySelector(".display__end-time");
+let countDown;
+
 // Get the timer__button button click event
 document.querySelectorAll('.timer__button').forEach(element=>{
     element.addEventListener('click', (event)=>{
         const timeInSec = event.target.getAttribute('data-time');
+
+        //call timer function
         timer(timeInSec);       
     })
 })
 
-let display__time_left = document.querySelector(".display__time-left");
-let display__end_time = document.querySelector(".display__end-time");
-let countDown;
 // A function that runs every second
 const timer = (seconds) => {
 	clearInterval(countDown);
@@ -42,7 +47,7 @@ function displayCountDown(secondsLeft) {
 // display the return time in --- futureTime in milliseconds
 function displayReturnTime(futureTime) {
 	let newDate = new Date(futureTime);
-	let hours = newDate.getHours() % 12;
+	let hours = newDate.getHours() % 12 == 0 ? 12 : newDate.getHours() % 12;
 	let minute = newDate.getMinutes();
 	let seconds = newDate.getSeconds();
 	let display = `Be Back At ${hours}:${minute < 10 ? "0" : ""}${minute}:${seconds < 10 ? "0" : ""}${seconds}`;
@@ -64,7 +69,6 @@ document
         
         // convert the minutes to seconds
         const seconds = enteredMins * 60;
-        console.log('min in secs', seconds)
 
         // call the timer function and pass the seconds
         timer(seconds)
